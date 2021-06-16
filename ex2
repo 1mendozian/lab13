@@ -1,0 +1,31 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    srand((int)time(0));
+    int n, m;
+    cout << "n="; cin >> n;
+    cout << "m="; cin >> m;
+
+    double** a = new double* [n], sum = 0.0;
+    for (int i = 0; i < n; i++)
+        a[i] = new double[m];
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            a[i][j] = -20 + rand() % 41;
+            cout << a[i][j] << "\t";
+            if (i == j)
+                sum += a[i][j];
+        }
+        cout << endl;
+    }
+    cout << "Сума елементiв головної дiагоналi: " << sum << endl;
+
+        return 0;
+}
